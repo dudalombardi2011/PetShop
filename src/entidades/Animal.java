@@ -10,7 +10,7 @@ public abstract class Animal{
         this.raca = raca;
         this.idade = idade;
     }
-    
+
     public int getId() {
         return id;
     }
@@ -35,6 +35,10 @@ public abstract class Animal{
     public void setIdade(int idade) {
         this.idade = idade;
     }
+
+    //pensar em outro metodo para implementar, esse nao faz sentido 
+    public abstract void emitirSom();
+    
 
     
 }
