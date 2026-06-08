@@ -2,19 +2,8 @@ import java.time.LocalDateTime;
 
 public class Banho extends Servico {
 
-    private LocalDateTime horario;
-
     public Banho(LocalDateTime horario) {
-        this.horario = horario;
-    }
-
-    @Override
-    public LocalDateTime getHorario() {
-        return horario;
-    }
-
-    public void setHorario(LocalDateTime horario) {
-        this.horario = horario;
+        super(horario, 50.0);
     }
 
     //pensar em alguma logica para botar aqui 
