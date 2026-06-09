@@ -1,8 +1,10 @@
+import java.util.ArrayList;
 public abstract class Animal{
     private int id; 
     private String nome;
     private String raca;
     private int idade;
+    private ArrayList<Servico> listaDeServicos;
 
     public Animal(int id, String nome, String raca, int idade) {
         this.id = id;
@@ -36,8 +38,13 @@ public abstract class Animal{
         this.idade = idade;
     }
 
-    //pensar em outro metodo para implementar, esse nao faz sentido 
-    public abstract void emitirSom();
+    public void addServico (Servico servico){
+        listaDeServicos.add(servico);
+    }
+
+    public void removeServico(Servico servico){
+        listaDeServicos.remove(servico);
+    }
     
 
     

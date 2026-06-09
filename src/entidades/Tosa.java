@@ -3,7 +3,7 @@ import java.time.LocalDateTime;
 public class Tosa extends Servico{
     
      public Tosa(LocalDateTime horario) {
-        super(horario, 40.0);
+        super(horario, 40.0); // Mudar lógica
     }
 
     //pensar em alguma logica para botar aqui 

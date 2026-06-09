@@ -2,12 +2,12 @@ import java.util.ArrayList;
 
 public class GerenciadorPetShop {
     private ArrayList<Cliente> clientes;
-    private ArrayList <Atendimento> atendimentos;
+    private ArrayList <Compra> compras;
 
     //construtor 
     public GerenciadorPetShop() {
         this.clientes = new ArrayList<>();
-        this.atendimentos = new ArrayList<>();
+        this.compras = new ArrayList<>();
     }
 
     public ArrayList<Cliente> getClientes() {
@@ -18,22 +18,10 @@ public class GerenciadorPetShop {
         this.clientes = clientes;
     }
 
-    public ArrayList<Atendimento> getAtendimentos() {
-        return atendimentos;
-    }
-
-    public void setAtendimentos(ArrayList<Atendimento> atendimentos) {
-        this.atendimentos = atendimentos;
-    }
-
     public void cadastrarCliente(Cliente cliente){
         clientes.add(cliente);
     }
 
-       public void cadastrarAtendimento(Atendimento atendimento) {
-        atendimentos.add(atendimento);
-    }
-
-    //ta faltando coisa  
+    //RegistrarCompra  
 
 }
