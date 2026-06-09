@@ -34,10 +34,6 @@ public class GerenciadorPetShop {
         atendimentos.add(atendimento);
     }
 
-    //ta faltando coisa
-
-    
-
-    
+    //ta faltando coisa  
 
 }

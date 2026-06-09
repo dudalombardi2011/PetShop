@@ -8,7 +8,7 @@ public class Tosa extends Servico{
 
     //pensar em alguma logica para botar aqui 
     @Override
-    public void executarServico(){
+    public void calculaValor(Porte porte){
         System.out.println("Executando banho");
     }
     

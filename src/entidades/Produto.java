@@ -1,5 +1,3 @@
-package entidades;
-
 public abstract class Produto {
     private String nome;
     private Integer codigo;
@@ -35,5 +33,21 @@ public abstract class Produto {
 
     public void setValor(Double valor) {
         this.valor = valor;
+    }
+
+    public Integer getQuantidadeEstoque() {
+        return quantidadeEstoque;
+    }
+
+    public void setQuantidadeEstoque(Integer quantidadeEstoque) {
+        this.quantidadeEstoque = quantidadeEstoque;
+    }
+
+    public void addEstoque(int qtd){
+        quantidadeEstoque+=qtd;
+    }
+
+    public void removeEstoque(int qtd){
+        quantidadeEstoque-=qtd;
     }
 }

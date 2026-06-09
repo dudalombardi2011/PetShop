@@ -1,5 +1,3 @@
-import entidades.enums.Porte;
-
 import java.time.LocalDateTime;
 
 public abstract class Servico implements Agendavel{
@@ -25,6 +23,6 @@ public abstract class Servico implements Agendavel{
         return valor;
     }
 
-    public abstract void calculaValor(String raca, Porte porte);
+    public abstract void calculaValor(Porte porte);
 }
 
