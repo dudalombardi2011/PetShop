@@ -22,6 +22,16 @@ public class GerenciadorPetShop {
         clientes.add(cliente);
     }
 
+    public ArrayList<Compra> getCompras() {
+        return compras;
+    }
+
+    public void setCompras(ArrayList<Compra> compras) {
+        this.compras = compras;
+    }
+
+    
+
     //RegistrarCompra  
 
 }

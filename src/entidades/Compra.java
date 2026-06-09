@@ -38,6 +38,14 @@ public class Compra{
     public void setDataHora(LocalDateTime dataHora) {
         this.dataHora = dataHora;
     }
+    public FormaPagamento getFormaPagamento() {
+        return formaPagamento;
+    }
+    public void setFormaPagamento(FormaPagamento formaPagamento) {
+        this.formaPagamento = formaPagamento;
+    }
+
+    
 
     //@Override
     //public 
