@@ -1,3 +1,5 @@
+import entidades.enums.Porte;
+
 import java.time.LocalDateTime;
 
 public class Banho extends Servico {
@@ -8,8 +10,8 @@ public class Banho extends Servico {
 
     //pensar em alguma logica para botar aqui 
     @Override
-    public void executarServico(){
-        System.out.println("Executando banho");
+    public abstract void calculaValor(String raca, Porte porte){
+
     }
     
     

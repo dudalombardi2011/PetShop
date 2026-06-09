@@ -1,0 +1,39 @@
+package entidades;
+
+public abstract class Produto {
+    private String nome;
+    private Integer codigo;
+    private Double valor;
+    private Integer quantidadeEstoque;
+
+    public Produto(String nome, Integer codigo, Double valor, Integer quantidadeEstoque){
+        this.nome = nome;
+        this.codigo = codigo;
+        this.valor = valor;
+        this.quantidadeEstoque = quantidadeEstoque;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public Integer getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(Integer codigo) {
+        this.codigo = codigo;
+    }
+
+    public Double getValor() {
+        return valor;
+    }
+
+    public void setValor(Double valor) {
+        this.valor = valor;
+    }
+}
