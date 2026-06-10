@@ -4,13 +4,14 @@ public abstract class Animal{
     private String nome;
     private String raca;
     private int idade;
-    private ArrayList<Servico> listaDeServicos;
+    private Porte porte;
 
-    public Animal(int id, String nome, String raca, int idade) {
+    public Animal(int id, String nome, String raca, int idade, Porte porte) {
         this.id = id;
         this.nome = nome;
         this.raca = raca;
         this.idade = idade;
+        this.porte = porte;
     }
 
     public int getId() {
@@ -37,15 +38,10 @@ public abstract class Animal{
     public void setIdade(int idade) {
         this.idade = idade;
     }
-
-    public void addServico (Servico servico){
-        listaDeServicos.add(servico);
+    public Porte getPorte() {
+        return porte;
     }
-
-    public void removeServico(Servico servico){
-        listaDeServicos.remove(servico);
+    public void setPorte(Porte porte) {
+        this.porte = porte;
     }
-    
-
-    
 }

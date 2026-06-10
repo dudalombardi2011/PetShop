@@ -6,10 +6,9 @@ public class ConsultaVeterinaria extends Servico{
         super(horario, 100.0); // Mudar lógica
     }
 
-    //pensar em alguma logica para botar aqui 
     @Override
-    public void calculaValor(Porte porte){
-        System.out.println("Executando banho");
+    public void calculaValor(){
+        return this.getValorBase();
     }
     
     

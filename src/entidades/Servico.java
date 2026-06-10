@@ -1,16 +1,16 @@
 import java.time.LocalDateTime;
 
-public abstract class Servico implements Agendavel{
-   
+public abstract class Servico{
     private LocalDateTime horario;
-    private double valor;
+    private Double valorBase;
+    private Animal animal;
 
-    public Servico(LocalDateTime horario, double valor) {
+    public Servico(LocalDateTime horario, Double valorBase, Animal animal) {
         this.horario = horario;
-        this.valor = valor;
+        this.valorBase = valorBase;
+        this.animal = animal;
     }
 
-    @Override
     public LocalDateTime getHorario() {
         return horario;
     }
@@ -20,9 +20,25 @@ public abstract class Servico implements Agendavel{
     }
 
     public double getValor() {
-        return valor;
+        return valorBase;
     }
 
-    public abstract void calculaValor(Porte porte);
+    public Animal getAnimal() {
+        return animal;
+    }
+
+    public void setAnimal(Animal animal) {
+        this.animal = animal;
+    }
+
+    public Double getValorBase() {
+        return valorBase;
+    }
+
+    public void setValorBase(Double valorBase) {
+        this.valorBase = valorBase;
+    }
+
+    public abstract void calculaValor();
 }
 
