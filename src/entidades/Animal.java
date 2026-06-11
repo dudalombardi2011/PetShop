@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+
 public abstract class Animal{
     private int id; 
     private String nome;

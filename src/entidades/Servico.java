@@ -39,6 +39,6 @@ public abstract class Servico{
         this.valorBase = valorBase;
     }
 
-    public abstract void calculaValor();
+    public abstract Double calculaValor();
 }
 

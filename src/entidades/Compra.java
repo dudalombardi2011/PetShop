@@ -48,7 +48,7 @@ public class Compra{
     }
 
     public void adicionarItem(Item itens) {
-        listaDeItens.add(itens);
+        this.itens.add(itens);
     }
     public void adicionarServico(Servico servico) {
         this.servicos.add(servico);
@@ -57,10 +57,10 @@ public class Compra{
     public double calcularValorBruto() {
         double total = 0.0;
         for (Item item : itens) {
-            total += item.calcularSubtotal();
+            total += item.calcularSubTotal();
         }
         for (Servico servico : servicos) {
-            total += servico.calcularValorFinal();
+            total += servico.calculaValor();
         }
         return total;
     }
@@ -69,7 +69,7 @@ public class Compra{
         this.formaPagamento = pagamentoEscolhido;
         double valorBruto = calcularValorBruto();
 
-        double valor = formaPagamento.calcularValorFinal(valorBruto);
+        double valor = formaPagamento.calculaValorFinal(valorBruto);
 
         System.out.println("--- RESUMO DA COMPRA ---");
         System.out.println("Cliente: " + cliente.getNome());

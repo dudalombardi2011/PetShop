@@ -1,3 +1,3 @@
 public interface FormaPagamento {
-    public void calculaValorFinal(double valorBruto);
+    public double calculaValorFinal(double valorBruto);
 }

@@ -1,6 +1,6 @@
-public class PagamentoCartao {
+public class PagamentoCartao implements FormaPagamento{
     @Override
-    public double calcularValorFinal(double valorBruto) {
+    public double calculaValorFinal(double valorBruto) {
         return valorBruto * 0.90; // 10% de desconto
     }
 }

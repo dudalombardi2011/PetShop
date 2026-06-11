@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 
 public class Item {
     private Produto produto;
@@ -39,8 +38,11 @@ public class Item {
         return quantidade*valorUnitario;
     }
 
+    //ajeitar
     @Override
     public String toString() {
-        return a;
+        return "Item [produto=" + produto + ", quantidade=" + quantidade + ", valorUnitario=" + valorUnitario + "]";
     }
+
+   
 }
