@@ -1,3 +1,4 @@
+package entidades;
 public enum Porte {
     GRANDE, 
     MEDIO,

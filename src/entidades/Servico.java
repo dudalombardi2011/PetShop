@@ -1,3 +1,4 @@
+package entidades;
 import java.time.LocalDateTime;
 
 public abstract class Servico{

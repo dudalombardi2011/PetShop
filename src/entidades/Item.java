@@ -1,4 +1,4 @@
-
+package entidades;
 public class Item {
     private Produto produto;
     private int quantidade;

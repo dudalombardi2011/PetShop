@@ -1,3 +1,5 @@
+package entidades;
+
 import java.time.LocalDateTime;
 
 public class Banho extends Servico {

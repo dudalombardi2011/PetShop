@@ -1,3 +1,4 @@
+package entidades;
 public class PagamentoPix implements FormaPagamento {
     @Override
     public double calculaValorFinal(double valorBruto) {
