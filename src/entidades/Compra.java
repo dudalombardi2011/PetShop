@@ -55,6 +55,23 @@ public class Compra{
         this.servicos.add(servico);
     }
 
+    @Override
+    public String toString() {
+        double valorBruto = calcularValorBruto();
+        double valorFinal;
+
+        if (this.formaPagamento != null) {
+            valorFinal = formaPagamento.calculaValorFinal(valorBruto);
+        } else {
+            valorFinal = valorBruto; // Se ainda não pagou, o valor final é igual ao bruto
+        }
+
+        return "--- RESUMO DA COMPRA ---\n" +
+                "Cliente: " + cliente.getNome() + "\n" +
+                "Valor Bruto: R$ " + String.format("%.2f", valorBruto) + "\n" +
+                "Valor Final a Pagar: R$ " + String.format("%.2f", valorFinal);
+    }
+
     public double calcularValorBruto() {
         double total = 0.0;
         for (Item item : itens) {
@@ -68,14 +85,8 @@ public class Compra{
 
     public void finalizarCompra(FormaPagamento pagamentoEscolhido) {
         this.formaPagamento = pagamentoEscolhido;
-        double valorBruto = calcularValorBruto();
-
-        double valor = formaPagamento.calculaValorFinal(valorBruto);
-
-        System.out.println("--- RESUMO DA COMPRA ---");
-        System.out.println("Cliente: " + cliente.getNome());
-        System.out.println("Valor Bruto: R$ " + valorBruto);
-        System.out.println("Valor Final a Pagar: R$ " + valor);
+        
+        System.out.println(this);
     }
 
     

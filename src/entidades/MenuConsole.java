@@ -15,7 +15,6 @@ public class MenuConsole {
         this.gerenciador = gerenciador;
     }
 
-    
     //MENU PRINCIPAL
    
     public void iniciarSistema() {
@@ -56,10 +55,10 @@ public class MenuConsole {
                     realizarCompra();
                     break;
                 case 7:
-                    System.out.println("\nA terminar o sistema... Até logo!");
+                    System.out.println("\n Terminando o sistema... Até logo!");
                     break;
                 default:
-                    System.out.println("\n[Aviso] Opção inválida! Tente novamente.");
+                    System.out.println("\n Opção inválida! Tente novamente.");
             }
         }
     }
@@ -142,7 +141,7 @@ public class MenuConsole {
         if (opcao == 1) {
             System.out.print("Novo E-mail: ");
             cliente.setEmail(sc.nextLine());
-            System.out.println("[Sucesso] E-mail atualizado!");
+            System.out.println("E-mail atualizado!");
         } else if (opcao == 2) {
             gerenciarAnimaisCliente(cliente);
         }
@@ -352,17 +351,17 @@ public class MenuConsole {
             System.out.println("3 - Ir para o Pagamento (Finalizar)");
             System.out.println("4 - Cancelar Venda");
             System.out.print("Opção: ");
-            int op = sc.nextInt();
+            int opcao = sc.nextInt();
             sc.nextLine();
 
-            if (op == 1) {
+            if (opcao == 1) {
                 System.out.print("Código do Produto: ");
-                int cod = sc.nextInt();
+                int codigo = sc.nextInt();
                 sc.nextLine();
 
                 Produto produtoEncontrado = null;
                 for (Produto p : gerenciador.getProdutos()) {
-                    if (p.getCodigo() == cod) {
+                    if (p.getCodigo() == codigo) {
                         produtoEncontrado = p;
                         break;
                     }
@@ -384,7 +383,7 @@ public class MenuConsole {
                     System.out.println("Produto não encontrado.");
                 }
 
-            } else if (op == 2) {
+            } else if (opcao == 2) {
                 if (cliente.getAnimais().isEmpty()) { //se o cliente nao tiver animais 
                     System.out.println("[Aviso] Este cliente não possui animais para receber serviços.");
                 } else {
@@ -393,23 +392,23 @@ public class MenuConsole {
                         System.out.println((i + 1) + " - " + cliente.getAnimais().get(i));
                     }
                     System.out.print("Número do Pet: ");
-                    int idx = sc.nextInt() - 1;
+                    int id = sc.nextInt() - 1;
                     sc.nextLine();
 
-                    if (idx >= 0 && idx < cliente.getAnimais().size()) {
-                        Animal pet = cliente.getAnimais().get(idx);
+                    if (id >= 0 && id < cliente.getAnimais().size()) {
+                        Animal pet = cliente.getAnimais().get(id);
                         System.out.println("Qual serviço?");
                         System.out.println("1 - Banho\n2 - Tosa\n3 - Consulta Veterinária");
                         System.out.print("Opção: ");
-                        int servOp = sc.nextInt();
+                        int servicoOpcao = sc.nextInt();
                         sc.nextLine();
 
                         Servico servico = null;
-                        if (servOp == 1) {
+                        if (servicoOpcao == 1) {
                             servico = new Banho(java.time.LocalDateTime.now(), pet);
-                        } else if (servOp == 2) {
+                        } else if (servicoOpcao == 2) {
                             servico = new Tosa(java.time.LocalDateTime.now(), pet);
-                        } else if (servOp == 3) {
+                        } else if (servicoOpcao == 3) {
                             servico = new ConsultaVeterinaria(java.time.LocalDateTime.now(), pet);
                         }
 
@@ -420,7 +419,7 @@ public class MenuConsole {
                     }
                 }
 
-            } else if (op == 3) {
+            } else if (opcao == 3) {
                 System.out.println("\n--- TELA DE PAGAMENTO ---");
                 System.out.println("1 - PIX (Gera 10% de Desconto)");
                 System.out.println("2 - Cartão de Crédito (Gera 5% de Taxa)");
@@ -438,10 +437,11 @@ public class MenuConsole {
                 novaCompra.finalizarCompra(forma);
 
                 gerenciador.getCompras().add(novaCompra);
+                System.out.println(novaCompra);
                 System.out.println("Venda finalizada e guardada no histórico!");
                 adicionando = false;
 
-            } else if (op == 4) {
+            } else if (opcao == 4) {
                 System.out.println("Venda cancelada.");
                 adicionando = false;
             }
