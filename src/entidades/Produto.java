@@ -51,4 +51,13 @@ public class Produto {
     public void removeEstoque(int qtd){
         quantidadeEstoque-=qtd;
     }
+
+    @Override
+    public String toString() {
+        return "Código: " + codigo + " | Nome: " + nome + " | Preço: R$ " + String.format("%.2f", valor) + " | Estoque: " + quantidadeEstoque;
+    }
+
+    public String toTableRow() {
+        return String.format("%-8d | %-25s | R$ %-9.2f | %-8d", codigo, nome, valor, quantidadeEstoque);
+    }
 }

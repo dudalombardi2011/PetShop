@@ -55,5 +55,29 @@ public class Cliente {
         this.animais.add(animal);
     }
 
+    @Override
+    public String toString() {
+        String textoEmail;
+        if (email != null) {
+            textoEmail = email;
+        } else {
+            textoEmail = "Não informado";
+        }
+
+        String dados = "ID: " + id + " | Nome: " + nome + " | CPF: " + cpf + " | E-mail: " + textoEmail + "\nAnimais Vinculados:\n";
+
+        if (animais.isEmpty()) {
+            dados += "  - Nenhum animal cadastrado.\n";
+        } else {
+            for (Animal a : animais) {
+                dados += "  - " + a.toString() + "\n"; // Usa o toString() do Animal!
+            }
+        }
+        return dados;
+    }
+
+    public String toTableRow() {
+        return String.format("%-5d | %-20s | %-12d | %-15s", id, nome, cpf, email != null ? email : "N/D");
+    }
     
 }

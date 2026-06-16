@@ -53,4 +53,8 @@ public class Animal{
     public void setPorte(Porte porte) {
         this.porte = porte;
     }
+    @Override
+    public String toString() {
+        return nome + " (" + especie + " da raça " + raca + " | Porte: " + porte + ")";
+    }
 }
