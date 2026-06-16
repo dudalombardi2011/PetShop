@@ -5,12 +5,14 @@ public class Cliente {
     private int id;
     private String nome;
     private int cpf;
+    private String email;
     private ArrayList<Animal> animais = new ArrayList<>();
     
-    public Cliente(int id, String nome, int cpf) {
+    public Cliente(int id, String nome, int cpf, String email) {
         this.id = id;
         this.nome = nome;
         this.cpf = cpf;
+        this.email = email;
     }
 
     public int getId() {
@@ -35,6 +37,14 @@ public class Cliente {
 
     public void setCpf(int cpf) {
         this.cpf = cpf;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public ArrayList<Animal> getAnimais() {

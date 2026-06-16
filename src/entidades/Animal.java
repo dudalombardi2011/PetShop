@@ -1,15 +1,17 @@
 package entidades;
 
-public abstract class Animal{
+public class Animal{
     private int id; 
     private String nome;
     private String raca;
+    private String especie;
     private int idade;
     private Porte porte;
 
-    public Animal(int id, String nome, String raca, int idade, Porte porte) {
+    public Animal(int id, String nome, String especie, String raca, int idade, Porte porte) {
         this.id = id;
         this.nome = nome;
+        this.especie = especie;
         this.raca = raca;
         this.idade = idade;
         this.porte = porte;
@@ -23,6 +25,12 @@ public abstract class Animal{
     }
     public String getNome() {
         return nome;
+    }
+    public String getEspecie() {
+        return especie;
+    }
+    public void setEspecie(String especie) {
+        this.especie = especie;
     }
     public void setNome(String nome) {
         this.nome = nome;
