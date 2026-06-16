@@ -53,8 +53,9 @@ public class GerenciadorPetShop {
         return null;
     }
 
+    //criando os dados iniciais 
     public void carregarDadosIniciais() {
-        // 1. Criando 7 Clientes
+       
         Cliente c1 = new Cliente(1, "Duda Lombardi", 11111, "dudalombardi@gmail.com");
         Cliente c2 = new Cliente(2, "Artur Silveira", 22222, "artursilveira@gmail.com");
         Cliente c3 = new Cliente(3, "Artur 'Certinho'", 33333, "arturcertinho@gmail.com");
@@ -63,7 +64,7 @@ public class GerenciadorPetShop {
         Cliente c6 = new Cliente(6, "Antonio Nunes", 66666, "antonionunes@yahoo.com.br");
         Cliente c7 = new Cliente(7, "Clara dos Anjos", 77777, "claradosanjos@outlook.com");
 
-        // 2. Criando 7 Animais (int id, String nome, String especie, String raca, int idade, Porte porte)
+        
         Animal a1 = new Animal(1, "Apolo","Cachorro","Border Collie",6, Porte.MEDIO);
         Animal a2 = new Animal(2, "Stela","Cachorro","Border Collie",5, Porte.MEDIO);
         Animal a3 = new Animal(3, "Lesk", "Cachorro", "West Highland White Terrier", 4, Porte.PEQUENO);
@@ -86,7 +87,7 @@ public class GerenciadorPetShop {
         c6.adicionarAnimal(a7);
         c7.adicionarAnimal(a8);
 
-        // Adicionando os clientes na lista da PRÓPRIA classe
+    
         this.cadastrarCliente(c1);
         this.cadastrarCliente(c2);
         this.cadastrarCliente(c3);
@@ -120,7 +121,6 @@ public class GerenciadorPetShop {
         Servico s6 = new Banho(agora, a6);
         Servico s7 = new ConsultaVeterinaria(agora, a7);
 
-        // 5. Instanciação de 7 Objetos da classe Compra (Notas Fiscais) de forma populada
         Compra com1 = new Compra(1, agora, c1, new ArrayList<>()); 
         com1.adicionarServico(s1);
         Compra com2 = new Compra(2, agora, c2, new ArrayList<>()); 
@@ -136,7 +136,7 @@ public class GerenciadorPetShop {
         Compra com7 = new Compra(7, agora, c7, new ArrayList<>()); 
         com7.adicionarServico(s7);
 
-        // Inclusão de itens de produto nas compras para diversificação de testes
+        //adiciona item na compra
         com1.adicionarItem(new Item(p1, 1));
         com2.adicionarItem(new Item(p3, 2));
         com3.adicionarItem(new Item(p5, 1));

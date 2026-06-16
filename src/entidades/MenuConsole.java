@@ -5,10 +5,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
-/**
- * Classe responsável por gerir toda a interface textual (console) do sistema.
- * Centraliza os menus de inclusão, alteração, exclusão, listagem ordenada e buscas.
- */
+//Classe responsável por gerir toda a interface textual (console) do sistema.
 public class MenuConsole {
     private Scanner sc;
     private GerenciadorPetShop gerenciador;
@@ -18,9 +15,9 @@ public class MenuConsole {
         this.gerenciador = gerenciador;
     }
 
-    // ==========================================================
-    // 1. LOOP DO MENU PRINCIPAL
-    // ==========================================================
+    
+    //MENU PRINCIPAL
+   
     public void iniciarSistema() {
         int opcao = 0;
         while (opcao != 7) {
@@ -67,9 +64,7 @@ public class MenuConsole {
         }
     }
 
-    // ==========================================================
-    // 2. BLOCO DE INCLUSÃO (CADASTROS)
-    // ==========================================================
+    //INCLUSÃO (CADASTROS)
     private void exibirMenuIncluir() {
         System.out.println("\n--- MENU INCLUIR ---");
         System.out.println("1 - Novo Cliente");
@@ -123,9 +118,7 @@ public class MenuConsole {
         System.out.println("Produto adicionado ao estoque!");
     }
 
-    // ==========================================================
-    // 3. BLOCO DE ALTERAÇÃO
-    // ==========================================================
+    //ALTERAÇÃO
     private void exibirMenuAlterar() {
         System.out.println("\n--- SUBMENU ALTERAR ---");
         System.out.print("Digite o CPF do cliente para gerenciar: ");
@@ -213,9 +206,7 @@ public class MenuConsole {
         }
     }
 
-    // ==========================================================
-    // 4. BLOCO DE EXCLUSÃO (REMOÇÃO)
-    // ==========================================================
+    //REMOÇÃO
     private void exibirMenuExcluir() {
         System.out.println("\n--- SUBMENU EXCLUIR ---");
         System.out.println("1 - Excluir Cliente");
@@ -231,11 +222,12 @@ public class MenuConsole {
             sc.nextLine();
             Cliente cliente = gerenciador.buscarClientePorCpf(cpf);
             if (cliente != null) {
-                gerenciador.getClientes().remove(cliente);
+                gerenciador.getClientes().remove(cliente); //remov o cliente
                 System.out.println("Cliente removido com sucesso!");
-            } else {
+            } else { //se o cliente nao existir 
                 System.out.println("Cliente não encontrado.");
             }
+            //se quiser remover um produto:
         } else if (opcao == 2) {
             System.out.print("Digite o código do produto a remover: ");
             int codigo = sc.nextInt();
@@ -245,10 +237,10 @@ public class MenuConsole {
                 if (p.getCodigo() == codigo) {
                     alvo = p;
                     break;
-                }
+                } //verifica qual produto tem o codigo solicitado pelo cliente
             }
             if (alvo != null) {
-                gerenciador.getProdutos().remove(alvo);
+                gerenciador.getProdutos().remove(alvo); //tira o produto do estoque 
                 System.out.println("Produto removido do estoque!");
             } else {
                 System.out.println("Produto não encontrado.");
@@ -256,9 +248,7 @@ public class MenuConsole {
         }
     }
 
-    // ==========================================================
-    // 5. BLOCO DE LISTAGEM (TABULAR E ORDENADA)
-    // ==========================================================
+    //LISTAGEM
     private void exibirMenuRelatorios() {
         System.out.println("\n--- RELATÓRIOS ---");
         System.out.println("1 - Listar Clientes (Ordem Alfabética)");
@@ -269,7 +259,7 @@ public class MenuConsole {
 
         if (opcao == 1) {
             ArrayList<Cliente> listaClientes = new ArrayList<>(gerenciador.getClientes());
-            // Ordenação por nome ignorando maiúsculas/minúsculas (Requisito 6)
+            // Ordenação por nome ignorando maiúsculas/minúsculas
             listaClientes.sort((c1, c2) -> c1.getNome().compareToIgnoreCase(c2.getNome()));
 
             System.out.println("\n=============================================================");
@@ -290,9 +280,7 @@ public class MenuConsole {
         }
     }
 
-    // ==========================================================
-    // 6. BLOCO DE BUSCA POR ATRIBUTO
-    // ==========================================================
+    // BUSCA POR ATRIBUTO
     private void exibirMenuBuscar() {
         System.out.println("\n--- BUSCA DE REGISTROS ---");
         System.out.println("1 - Buscar Cliente por CPF");
@@ -309,6 +297,7 @@ public class MenuConsole {
             if (c != null) {
                 System.out.println("\n> Cliente Encontrado:");
                 System.out.println(c);
+                //mostra os animais do cliente pesquisado
                 System.out.println("Animais Vinculados:");
                 for (Animal a : c.getAnimais()) {
                     System.out.println("  - " + a);
@@ -336,22 +325,21 @@ public class MenuConsole {
         }
     }
 
-    // ==========================================================
-    // 7. BLOCO DE VENDAS
-    // ==========================================================
+    //VENDAS DE PRODUTOS E SERVIÇOS
     private void realizarCompra() {
-        System.out.println("\n--- FRENTE DE CAIXA (NOVA VENDA) ---");
+        System.out.println("\n--- NOVA VENDA ---");
         System.out.print("Digite o CPF do Cliente: ");
         int cpf = sc.nextInt();
         sc.nextLine();
 
+        //se o cliente nao existir 
         Cliente cliente = gerenciador.buscarClientePorCpf(cpf);
         if (cliente == null) {
-            System.out.println("[Erro] Cliente não encontrado! Cadastre-o primeiro.");
+            System.out.println("Cliente não encontrado! Cadastre-o primeiro.");
             return;
         }
 
-        // Cria uma nova nota fiscal (Compra)
+        // Cria uma nova nota fiscal 
         int idCompra = gerenciador.getCompras().size() + 1;
         Compra novaCompra = new Compra(idCompra, java.time.LocalDateTime.now(), cliente, new ArrayList<>());
 
@@ -391,13 +379,13 @@ public class MenuConsole {
                         System.out.println("Produto adicionado!");
                     } else {
                         System.out.println("Estoque insuficiente. Restam apenas " + produtoEncontrado.getQuantidadeEstoque() + " unidades.");
-                    }
+                    }//se ele solicitar uma quantidade maior do que o que tem no estoque
                 } else {
                     System.out.println("Produto não encontrado.");
                 }
 
             } else if (op == 2) {
-                if (cliente.getAnimais().isEmpty()) {
+                if (cliente.getAnimais().isEmpty()) { //se o cliente nao tiver animais 
                     System.out.println("[Aviso] Este cliente não possui animais para receber serviços.");
                 } else {
                     System.out.println("Selecione o Pet que vai receber o serviço:");
